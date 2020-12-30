@@ -7,16 +7,13 @@ const User = require('../models/userModel');
 
 const router = new express.Router();
 
-// Authentication builds on Maximilian Schwarzmüller's guide:
-// https://www.youtube.com/watch?v=0D5EEKH97NA
 
-// Get all users
 router.get('/', async (req, res) => {
   const users = await User.find();
   res.status(200).json(users);
 });
 
-// Sign up a user
+
 router.post('/signup', async (req, res) => {
   const { errors, isValid } = validateSignup(req.body);
 
@@ -107,7 +104,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
-// Get a user by their id
+
 router.get('/:id', async (req, res) => {
   const { id } = req.params;
 
@@ -174,7 +171,6 @@ router.patch('/:id', async (req, res) => {
   }
 });
 
-// Add a user to the list of users you are following
 router.patch('/following/:id', async (req, res) => {
   const { id } = req.params;
 
@@ -199,7 +195,7 @@ router.patch('/following/:id', async (req, res) => {
   }
 });
 
-// Remove a user from the list of users you are following
+
 router.patch('/unfollowing/:id', async (req, res) => {
   const { id } = req.params;
 
@@ -274,7 +270,6 @@ router.patch('/unfollowers/:id', async (req, res) => {
   }
 });
 
-// Delete a user
 router.delete('/:id', async (req, res) => {
   try {
     await User.remove({ _id: req.params.id }).exec();
