@@ -49,7 +49,7 @@ You can access the site at localhost:3000.
 3. Set the config variables.
 4. Go to deploy tab and deploy using any option.
 
-<img src = "Images/heroku deployment .png" height=350>
+<img src = "Images/heroku deployment.png" height=350>
 
 ### Project Deployed on 
 https://edgistify-assignment.herokuapp.com/login
